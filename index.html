@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Ahorcado</title>
+<link type="text/css" href="css/site.css" rel="Stylesheet" />  
+</head>
+<body>
+   <div id="dibujoahorcado">
+      <canvas id="canvasahorcado" width="320" height="250">
+      El Ahorcado sólo funciona en navegadores que soporten Canvas. 
+      </canvas>
+   </div>
+   <div id="letras">
+   </div>
+   <div id="botonesletras"></div>
+   <script type="text/javascript" src="libs/jquery-1.8.0.min.js"></script>
+   <script type="text/javascript" src="src/canvas.js"></script>
+   <script type="text/javascript" src="src/game.js"></script>
+   <script type="text/javascript" src="src/controller.js"></script>
+   <script type="text/javascript">
+      $(document).ready(function() {
+         var controller = new Controller();
+         controller.start();
+      });
+   </script>
+</body>
+</html>
