@@ -1,60 +1,60 @@
 var Controller = function() {
+   this.init();
+};
 
-   var game = null;
-   var canvas = null;
+Controller.prototype = {
+   init: function() {
+      var hiddenWord = this.getRandomWord();
+      this.game = new Game(hiddenWord);
+      this.canvas = new Canvas();
 
-   var init = function() {
-      var hiddenWord = getRandomWord();
-      game = new Game(hiddenWord);
-      canvas = new Canvas();
+      this.createButtons();
+      $('.letter').click($.proxy(this.onButtonClick, this));
+   },
 
-      createButtons();
-      $('.botonletra').click(onButtonClick);
-   };
-
-   var getRandomWord=function() {
+   getRandomWord: function() {
       var palabras = ['ahorcado', 'lavadora', 'invierno', 'plastico', 'ordenador', 'colador', 'guantera', 'alimentador', 'calculos'];
       var aleat = Math.random() * palabras.length;
       var index = Math.floor(aleat);
       return palabras[index];
-   };
+   },
 
-   var createButtons = function() {
+   createButtons: function() {
       var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
       for (i = 0; i < letters.length; i++) {
-         var button= $('<button class="botonletra">' + letters[i] +'</button>')
-         $("#botonesletras").append(button);
+         var button = $('<button class="letter">' + letters[i] + '</button>');
+         $("#letters").append(button);
       }
-   };
+   },
 
-   var onButtonClick=function(event) {
-      var button= event.target;
+   onButtonClick : function(event) {
+      var button = event.target;
       var letter = $(button).text().toLowerCase();
-      playLetter(letter);
-      $(button).attr('disabled','disabled');
-   };
+      this.playLetter(letter);
+      $(button).attr('disabled', 'disabled');
+   },
 
-   var playLetter = function(letter) {
-      game.play(letter);
-      if (game.hit()) {
-         showHiddenWord();
-         if (game.hasWinner()) {
-            showDialog('Has Ganado!!', 'Felicidades! has adivinado la palabra!!');
+   playLetter : function(letter) {
+      this.game.play(letter);
+      if (this.game.hit()) {
+         this.showSecretWord();
+         if (this.game.hasWinner()) {
+            this.showDialog('Has Ganado!!', 'Felicidades! has adivinado la palabra!!');
          }
       } else {
-         canvas.dibujaAhorado(game.getNumFallos());
-         if (game.hasLosser()) {
-            showDialog('Has Perdido!!', 'Lo lamento!! la palabra era: ' + game.getSecretWord() + '</div>');
+         this.canvas.dibujaAhorado(this.game.getNumFallos());
+         if (this.game.hasLosser()) {
+            this.showDialog('Has Perdido!!', 'Lo lamento!! la palabra era: ' + this.game.getSecretWord() + '</div>');
          }
       }
-   };
+   },
 
-   var showHiddenWord = function() {
-      var texto = game.getFormatedSecretWord();
-      $("#letras").html(texto);
-   };
+   showSecretWord : function() {
+      var texto = this.game.getFormatedSecretWord();
+      $("#secret-word").html(texto);
+   },
 
-   var showDialog = function(title, message) {
+   showDialog : function(title, message) {
       var caja = $('<div class="dialogletra" title="' + title + '">' + message + '</div>');
       caja.dialog({
          modal: true,
@@ -65,12 +65,10 @@ var Controller = function() {
             }
          }
       });
-   };
+   },
 
-   this.start = function() {
-      canvas.dibujaAhorado(0);
-      showHiddenWord();
-   };
-
-   init();
+   start : function() {
+      this.canvas.dibujaAhorado(0);
+      this.showSecretWord();
+   }
 };

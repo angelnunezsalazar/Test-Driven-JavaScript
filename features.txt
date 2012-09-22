@@ -1,0 +1,7 @@
+- Mostrar Pantalla de Bienvenida
+- Ingresar palabra secreta: jugar con GATO y ver G__O
+- Jugar con letra
+- Mostrar letras Erroneas 
+- Intentos fallidos(# Errores Letras: 2/6)
+- Ganar
+- Perder

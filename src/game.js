@@ -19,7 +19,7 @@ var Game = function(secret_word) {
 
    this.getSecretWord=function() {
       return secret_word;
-   }
+   };
 
    this.getFormatedSecretWord = function() {
       var texto = '';
