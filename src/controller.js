@@ -1,15 +1,17 @@
-var Controller = function() {
-   this.init();
+var Controller = function(attributes) {
+   this.init(attributes);
 };
 
 Controller.prototype = {
-   init: function() {
-      var hiddenWord = this.getRandomWord();
-      this.game = new Game(hiddenWord);
-      this.canvas = new Canvas();
+   init: function(attributes) {
+      this.secretWordTag=attributes.secretWordTag;
+      this.lettersButtons=attributes.lettersButtons;
+/*      this.createButtons();
+      $('.letter').click($.proxy(this.onButtonClick, this));*/
 
-      this.createButtons();
-      $('.letter').click($.proxy(this.onButtonClick, this));
+      var secretWord = this.getRandomWord();
+      this.game = new Game(secretWord);
+      this.canvas = new Canvas();
    },
 
    getRandomWord: function() {
@@ -21,9 +23,9 @@ Controller.prototype = {
 
    createButtons: function() {
       var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-      for (i = 0; i < letters.length; i++) {
+      for (var i = 0; i < letters.length; i++) {
          var button = $('<button class="letter">' + letters[i] + '</button>');
-         $("#letters").append(button);
+         this.lettersButtons.append(button);
       }
    },
 
@@ -51,7 +53,7 @@ Controller.prototype = {
 
    showSecretWord : function() {
       var texto = this.game.getFormatedSecretWord();
-      $("#secret-word").html(texto);
+      this.secretWordTag.html(texto);
    },
 
    showDialog : function(title, message) {

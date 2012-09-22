@@ -14,14 +14,17 @@
    <div id="secret-word">
    </div>
    <div id="letters"></div>
-   <script type="text/javascript" src="libs/jquery-1.8.0.min.js"></script>
-   <script type="text/javascript" src="libs/jquery-ui-1.8.23.min.js"></script>
+   <script type="text/javascript" src="lib/jquery-1.8.0.min.js"></script>
+   <script type="text/javascript" src="lib/jquery-ui-1.8.23.min.js"></script>
    <script type="text/javascript" src="src/canvas.js"></script>
    <script type="text/javascript" src="src/game.js"></script>
    <script type="text/javascript" src="src/controller.js"></script>
    <script type="text/javascript">
       $(document).ready(function() {
-         var controller = new Controller();
+         var controller = new Controller({
+            secretWordTag:$("#secret-word"),
+            lettersButtons:$("#letters")
+         });
          controller.start();
       });
    </script>
