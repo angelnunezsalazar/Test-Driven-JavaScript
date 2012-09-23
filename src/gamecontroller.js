@@ -6,8 +6,9 @@ Controller.prototype = {
    init: function(attributes) {
       this.secretWordTag=attributes.secretWordTag;
       this.lettersButtons=attributes.lettersButtons;
-/*      this.createButtons();
-      $('.letter').click($.proxy(this.onButtonClick, this));*/
+      this.messageTag=attributes.messageTag;
+      this.createButtons();
+      $('.letter',this.lettersButtons).click($.proxy(this.onButtonClick, this));
 
       var secretWord = this.getRandomWord();
       this.game = new Game(secretWord);
@@ -24,7 +25,7 @@ Controller.prototype = {
    createButtons: function() {
       var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
       for (var i = 0; i < letters.length; i++) {
-         var button = $('<button class="letter">' + letters[i] + '</button>');
+         var button = $('<button id="'+letters[i]+'" class="letter">' + letters[i] + '</button>');
          this.lettersButtons.append(button);
       }
    },
@@ -41,12 +42,12 @@ Controller.prototype = {
       if (this.game.hit()) {
          this.showSecretWord();
          if (this.game.hasWinner()) {
-            this.showDialog('Has Ganado!!', 'Felicidades! has adivinado la palabra!!');
+            this.showMessage('You Win!!', 'Felicidades! has adivinado la palabra!!');
          }
       } else {
          this.canvas.dibujaAhorado(this.game.getNumFallos());
          if (this.game.hasLosser()) {
-            this.showDialog('Has Perdido!!', 'Lo lamento!! la palabra era: ' + this.game.getSecretWord() + '</div>');
+            this.showMessage('You Lose!!', 'Lo lamento!! la palabra era: ' + this.game.getSecretWord() + '</div>');
          }
       }
    },
@@ -56,16 +57,11 @@ Controller.prototype = {
       this.secretWordTag.html(texto);
    },
 
-   showDialog : function(title, message) {
-      var caja = $('<div class="dialogletra" title="' + title + '">' + message + '</div>');
-      caja.dialog({
+   showMessage : function(title, message) {
+      this.messageTag.html(message);
+      this.messageTag.dialog({
          modal: true,
-         width: 600,
-         buttons: {
-            "Ok": function() {
-               $(this).dialog("close");
-            }
-         }
+         title:title
       });
    },
 

@@ -3,10 +3,11 @@ body{
    font-family: Trebuchet MS, verdana, arial, sans-serif;
 }
 
-.dialogletra{
+#message{
    font-size: 3em;
    text-align: center;
    padding-top: 15px;
+   width: 300px;
 }
 
 #letters{
