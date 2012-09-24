@@ -11,6 +11,9 @@
       El Ahorcado sólo funciona en navegadores que soporten Canvas. 
       </canvas>
    </div>
+   <div id="statistics">
+      Fails (6): <span id="failed"></span>
+   </div>
    <div id="secret-word"></div>
    <div id="letters"></div>
    <div id="message"></div>
@@ -24,7 +27,8 @@
          var controller = new Controller({
             secretWordTag:$("#secret-word"),
             lettersButtons:$("#letters"),
-            messageTag:$("#message")
+            messageTag:$("#message"),
+            failedTag:$('#failed')
          });
          controller.start();
       });

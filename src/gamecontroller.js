@@ -7,6 +7,7 @@ Controller.prototype = {
       this.secretWordTag=attributes.secretWordTag;
       this.lettersButtons=attributes.lettersButtons;
       this.messageTag=attributes.messageTag;
+      this.failedTag=attributes.failedTag;
       this.createButtons();
       $('.letter',this.lettersButtons).click($.proxy(this.onButtonClick, this));
 
@@ -45,6 +46,7 @@ Controller.prototype = {
             this.showMessage('You Win!!', 'Felicidades! has adivinado la palabra!!');
          }
       } else {
+         this.failedTag.html(this.game.getNumFallos());
          this.canvas.dibujaAhorado(this.game.getNumFallos());
          if (this.game.hasLosser()) {
             this.showMessage('You Lose!!', 'Lo lamento!! la palabra era: ' + this.game.getSecretWord() + '</div>');

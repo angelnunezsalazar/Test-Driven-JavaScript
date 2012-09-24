@@ -4,6 +4,7 @@ describe("features", function() {
 	var secretWordTag;
 	var messageTag;
 	var lettersButtons;
+	var failedTag;
 
 	var fixturesBody = function(){
         return $('#' + fixtures.containerId).contents().find('body');
@@ -16,16 +17,19 @@ describe("features", function() {
 
 		var html='<div id="secret-word" ></div>'+
 				 '<div id="letters" ></div>'+
-				 '<div id="message" ></div>';
+				 '<div id="message" ></div>'+
+				 '<div id="failed" ></div>';
 		fixtures.set(html);
 
 		secretWordTag=$('#secret-word',fixturesBody());
 		lettersButtons=$('#letters',fixturesBody()),
 		messageTag=$('#message',fixturesBody());
+		failedTag=$('#failed',fixturesBody());
 		controller=new Controller({
 			secretWordTag:secretWordTag,
 			lettersButtons:lettersButtons,
-			messageTag:messageTag
+			messageTag:messageTag,
+			failedTag:failedTag
 		});
 
 		controller.start();
@@ -45,6 +49,13 @@ describe("features", function() {
 		$('#D',fixturesBody()).click();
 
 		secretWordTag.html().should.equal("_o_od____o");
+	});
+
+	it("should show the number of failed attempts",function() {
+		$('#A',fixturesBody()).click();
+		$('#B',fixturesBody()).click();
+
+		failedTag.html().should.equal('2');
 	});
 
 	it("should show when someone wins",function() {
