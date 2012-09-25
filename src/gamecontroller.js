@@ -36,6 +36,7 @@ Controller.prototype = {
       var letter = $(button).text().toLowerCase();
       this.playLetter(letter);
       $(button).attr('disabled', 'disabled');
+      $(button).off('click');
    },
 
    playLetter : function(letter) {

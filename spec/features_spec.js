@@ -58,6 +58,14 @@ describe("features", function() {
 		failedTag.html().should.equal('2');
 	});
 
+	it("should prevent to play the same letter twice",function() {
+		$('#A',fixturesBody()).click();
+		$('#B',fixturesBody()).click();
+		$('#B',fixturesBody()).click();
+
+		failedTag.html().should.equal('2');
+	});
+
 	it("should show when someone wins",function() {
 		$('#C',fixturesBody()).click();
 		$('#O',fixturesBody()).click();
