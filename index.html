@@ -24,13 +24,13 @@
    <script type="text/javascript" src="src/gamecontroller.js"></script>
    <script type="text/javascript">
       $(document).ready(function() {
-         var controller = new Controller({
+         var controller = new GameController({
             secretWordTag:$("#secret-word"),
             lettersButtons:$("#letters"),
             messageTag:$("#message"),
             failedTag:$('#failed')
          });
-         controller.start();
+         controller.startGame();
       });
    </script>
 </body>

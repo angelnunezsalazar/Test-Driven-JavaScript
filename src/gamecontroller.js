@@ -1,8 +1,8 @@
-var Controller = function(attributes) {
+var GameController = function(attributes) {
    this.init(attributes);
 };
 
-Controller.prototype = {
+GameController.prototype = {
    init: function(attributes) {
       this.secretWordTag=attributes.secretWordTag;
       this.lettersButtons=attributes.lettersButtons;
@@ -68,7 +68,7 @@ Controller.prototype = {
       });
    },
 
-   start : function() {
+   startGame : function() {
       this.canvas.dibujaAhorado(0);
       this.showSecretWord();
    }
