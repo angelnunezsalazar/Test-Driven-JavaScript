@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Test Runner Template</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- MOCHA STYLE SHEET -->
+	<link rel="stylesheet" href="../css/mocha.css">
+</head>
+<body>
+	<div id="mocha"></div>
+
+	<!-- MOCHA LIBRARY-->
+	<script type="text/javascript" src="../lib/mocha-1.4.2.js"></script>
+	<!-- OTRAS LIBRERÍAS-->
+	<script type="text/javascript" src="../lib/chai-1.2.0.js"></script>
+
+	<!-- MOCHA y CHAI CONFIGURATION -->
+	<script type="text/javascript">
+		/*
+		Mocha nos permite utilizar diferentes DSL(sintaxis): 
+			- BDD (Ejm: RSpec)
+			- TDD (Ejm: JUnit)
+			- QUnit (Similar a otra JS Testing Framework)
+		*/
+		mocha.setup('bdd');
+		chai.should();
+	</script>
+
+	<!-- TEST FILES (SPECS) -->
+	<script type="text/javascript" src="talk_spec.js"></script>
+
+	<!-- EJECUTAR MOCHA -->
+	<script type="text/javascript">
+		mocha.run();
+	</script>
+</body>
+</html>
