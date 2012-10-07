@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding: 60px 50px;
+  padding: 60px 5px;
 }
 
 #mocha ul, #mocha li {
@@ -44,11 +44,11 @@ body {
 }
 
 #mocha .suite {
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 #mocha .test {
-  margin-left: 15px;
+  margin-left: 0px;
 }
 
 #mocha .test:hover h2::after {
