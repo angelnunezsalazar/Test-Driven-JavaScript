@@ -15,17 +15,16 @@ describe("game", function() {
 		});
 	});
 
-	it("should show the secret word with dashes", function() {
+	it("should format the secret word with dashes", function() {
 		var word = game.formatSecretWord('gato');
 
 		word.should.equal('____');
 	});
 
-	it("should let enter the secret word", function() {
+	it("should show the secret word", function() {
 		wordInput.val('a');
 		acceptButton.click();
 
 		wordOutput.html().should.equal('_');
 	});
-
 });
