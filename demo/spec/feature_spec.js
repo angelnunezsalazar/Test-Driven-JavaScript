@@ -1,3 +1,4 @@
+/*global Game:false*/
 describe("Features", function() {
 	var wordInput;
 	var wordForm;

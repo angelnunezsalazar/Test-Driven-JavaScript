@@ -1,3 +1,4 @@
+/*global Game:false*/
 describe("game", function() {
 	var wordInput;
 	var wordForm;
