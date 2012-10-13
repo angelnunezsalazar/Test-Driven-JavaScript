@@ -5,15 +5,17 @@ function GameController(attributes) {
 
 GameController.prototype = {
 	init: function(attributes) {
+		this.game=new Game();
 		this.wordInput = attributes.wordInput;
 		this.wordForm = attributes.wordForm;
 		this.wordOutput = attributes.wordOutput;
 		this.buttonList = attributes.buttonList;
+		this.failedAttemptsOutput= attributes.failedAttemptsOutput;
 		this.wordForm.submit($.proxy(this.onFormSubmit, this));
 	},
 	onFormSubmit: function(e) {
 		e.preventDefault();
-		this.game=new Game(this.wordInput.val());
+		this.game.start(this.wordInput.val());
 		this.wordOutput.html(this.game.formatedSecretWord);
 		this.createButtons();
 	},
@@ -29,7 +31,8 @@ GameController.prototype = {
 		this.tryLetter(letter);
 	},
 	tryLetter: function(letter) {
-		this.game.tryLetter( letter);
+		this.game.tryLetter(letter);
 		this.wordOutput.html(this.game.formatedSecretWord);
+		this.failedAttemptsOutput.html(this.game.getFailedAttempts());
 	}
 };

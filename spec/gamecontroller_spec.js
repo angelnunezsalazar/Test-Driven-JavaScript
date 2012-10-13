@@ -5,17 +5,20 @@ describe("GameController", function() {
 	var wordOutput;
 	var buttonList;
 	var gameController;
+	var failedAttemptsOutput;
 
 	beforeEach(function() {
 		wordInput = $('<input>');
 		wordForm = $('<form>');
 		wordOutput = $('<div>');
-		buttonList = $('<div>');
+		buttonList = $('<ditv>');
+		failedAttemptsOutput = $('<span>');
 		gameController = new GameController({
 			wordInput: wordInput,
 			wordForm: wordForm,
 			wordOutput: wordOutput,
-			buttonList: buttonList
+			buttonList: buttonList,
+			failedAttemptsOutput:failedAttemptsOutput
 		});
 	});
 
@@ -95,5 +98,14 @@ describe("GameController", function() {
 		$('button:contains("a")', buttonList).click();
 
 		wordOutput.html().should.equal('a');
+	});
+
+	it("should show the failed attemps", function(){
+		var game=sinon.stub(gameController.game);
+		game.getFailedAttempts.returns(2);
+
+		gameController.tryLetter("any_letter");
+
+		failedAttemptsOutput.html().should.equal('2');
 	});
 });
