@@ -1,1 +1,3 @@
-test_page: spec/unit_runner.html
+test_page: 
+- spec/unit_runner.html
+- spec/feature_runner.html

@@ -1,4 +1,4 @@
-/*global GameController:false*/
+/*global GameController:false, sinon:false*/
 describe("Features", function() {
 	var wordInput;
 	var wordForm;
@@ -6,6 +6,8 @@ describe("Features", function() {
 	var buttonList;
 	var failedAttemptsOutput;
 	var gameController;
+
+	var server;
 
 	beforeEach(function() {
 		wordInput = $('<input>');
@@ -20,11 +22,15 @@ describe("Features", function() {
 			buttonList: buttonList,
 			failedAttemptsOutput:failedAttemptsOutput
 		});
+
+		server = sinon.fakeServer.create();
 	});
 
-	function playWith (word) {
-		wordInput.val(word);
-		wordForm.submit();
+	function playWith (secretWord) {
+		server.respondWith('{"secretword":"'+secretWord+'"}');
+		
+		gameController.start();
+		server.respond();
 	}
 
 	function tryLetter (letter) {

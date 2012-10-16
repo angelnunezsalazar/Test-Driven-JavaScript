@@ -1,4 +1,4 @@
-/*global GameController:false*/
+/*global GameController:false, sinon:false*/
 describe("GameController", function() {
 	var wordInput;
 	var wordForm;
@@ -6,6 +6,7 @@ describe("GameController", function() {
 	var buttonList;
 	var gameController;
 	var failedAttemptsOutput;
+	var server;
 
 	beforeEach(function() {
 		wordInput = $('<input>');
@@ -20,18 +21,26 @@ describe("GameController", function() {
 			buttonList: buttonList,
 			failedAttemptsOutput:failedAttemptsOutput
 		});
+
+		server=sinon.fakeServer.create();
 	});
 
 	function playWith(secretWord) {
-		wordInput.val(secretWord);
-		wordForm.submit();
+/*		wordInput.val(secretWord);
+		wordForm.submit();*/
+		server.respondWith('{"secretword":"'+secretWord+'"}');
+		
+		gameController.start();
+		server.respond();
 	}
 
 	it("should show the secret word", function() {
-		wordInput.val('a');
-		wordForm.submit();
+		server.respondWith('{"secretword":"gato"}');
 
-		wordOutput.html().should.equal('_');
+		gameController.start();
+		server.respond();
+
+		wordOutput.html().should.equal('____');
 	});
 
 	describe("create letter buttons", function() {

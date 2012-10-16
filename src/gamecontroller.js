@@ -11,13 +11,14 @@ GameController.prototype = {
 		this.wordOutput = attributes.wordOutput;
 		this.buttonList = attributes.buttonList;
 		this.failedAttemptsOutput= attributes.failedAttemptsOutput;
-		this.wordForm.submit($.proxy(this.onFormSubmit, this));
 	},
-	onFormSubmit: function(e) {
-		e.preventDefault();
-		this.game.start(this.wordInput.val());
-		this.wordOutput.html(this.game.formatedSecretWord);
-		this.createButtons();
+	start:function() {
+		var self=this;
+		$.getJSON('/url', function(data) {
+			self.game.start(data.secretword);
+			self.wordOutput.html(self.game.formatedSecretWord);
+			self.createButtons();
+		});
 	},
 	createButtons: function() {
 		for(var i = 97; i <= 122; i++) {
