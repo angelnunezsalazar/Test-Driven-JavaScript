@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   // Build configuration.
   grunt.initConfig({
     lint: {
-      files: ['grunt.js', 'src/*.js', 'spec/*.js']
+      files: ['grunt.js', 'public/app/*.js', 'tests/*.js']
     },
     jshint: {
       options: {

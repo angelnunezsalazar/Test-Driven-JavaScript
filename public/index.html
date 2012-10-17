@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Ahorcado</title>
+   <meta http-equiv="Access-Control-Allow-Origin" content="*"> 
+<link type="text/css" href="css/site.css" rel="Stylesheet" />  
+<link type="text/css" href="css/jquery-ui-1.8.23.css" rel="Stylesheet" />
+</head>
+<body>
+   <div id="wordDisplayed"></div>
+   <div id="letters"></div>
+   <div id="statistics">
+      Fails: <span id="failedAttemps"></span>
+   </div>
+
+   <script type="text/javascript" src="lib/jquery-1.8.0.min.js"></script>
+   <script type="text/javascript" src="lib/jquery-ui-1.8.23.min.js"></script>
+   <script type="text/javascript" src="app/game.js"></script>
+   <script type="text/javascript" src="app/gamecontroller.js"></script>
+   <script type="text/javascript">
+      $(document).ready(function() {
+         var controller = new GameController({
+            wordInput: $('#secretWord'),
+            wordForm: $('#secretWordForm'),
+            wordOutput: $('#wordDisplayed'),
+            buttonList: $('#letters'),
+            failedAttemptsOutput: $('#failedAttemps')
+         });
+         controller.start();
+      });
+   </script>
+</body>
+</html>
