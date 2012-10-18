@@ -7,6 +7,19 @@ describe("GameController", function() {
 	var failedAttemptsOutput;
 	var server;
 
+	function loadFixture(){
+		fixtures.path='fixtures';
+		fixtures.load("game.html");
+		return $('#' + fixtures.containerId).contents().find('body');
+	}
+
+	function playWith(secretWord) {
+		server.respondWith('{"secretword":"'+secretWord+'"}');
+		
+		gameController.start();
+		server.respond();
+	}
+
 	beforeEach(function() {
 		var fixture=loadFixture();
 
@@ -25,19 +38,6 @@ describe("GameController", function() {
 	afterEach(function(){
 		fixtures.cleanUp();
 	});
-
-	function loadFixture(){
-		fixtures.path='fixtures';
-		fixtures.load("game.html");
-		return $('#' + fixtures.containerId).contents().find('body');
-	}
-
-	function playWith(secretWord) {
-		server.respondWith('{"secretword":"'+secretWord+'"}');
-		
-		gameController.start();
-		server.respond();
-	}
 
 	it("should show the secret word", function() {
 		server.respondWith('{"secretword":"gato"}');

@@ -17,12 +17,12 @@ Game.prototype={
 	getFailedAttempts:function() {
 		return this.failedAttempts;
 	},
-	formatSecretWord: function(secretWord) {
-		var word = '';
-		for(var i = 0; i < secretWord.length; i++) {
-			word += '_';
+	formatSecretWord: function(word) {
+		var formatedWord = '';
+		for(var i = 0; i < word.length; i++) {
+			formatedWord += '_';
 		}
-		return word;
+		return formatedWord;
 	},
 	updateFormatedSecretWord:function(letter) {
 		for(var index = 0; index < this.secretWord.length; index++) {
