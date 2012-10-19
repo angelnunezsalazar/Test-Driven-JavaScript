@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite name="jshint" tests="1" failures="1" errors="0" >
+	<testcase name="public\app\game.js">
+		<failure message="1 JSHINT Failure" >
+1. line 37, char 47: Expected &apos;!==&apos; and instead saw &apos;!=&apos;.
+		</failure>
+	</testcase>
+</testsuite>
