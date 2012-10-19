@@ -2,63 +2,26 @@
 module.exports = function(grunt) {
 
   //Import tasks
-  grunt.loadNpmTasks('grunt-jslint');
+  grunt.loadNpmTasks('grunt-contrib');
+  grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-exec');
 
-  // Build configuration.
   grunt.initConfig({
-
-    jslint: {
-      files: ['public/app/*.js', 'tests/*.js']
+    concat: {
+      "public/app/script.js": ["public/app/*.js"]
     },
 
-    jslint_directives: {
-      sloppy: true, // Tolerate missing 'use strict' pragma
-      vars: true, // Tolerate multiple vars
-      white: true,
-      browser: true,
-      predef: [ // pre-defined globals
-      'jQuery',"$",'afterEach','beforeEach', 'describe', 'expect', 'it', 'fixtures']
+    min: {
+      "public/app/script.min.js": ["public/app/script.js"]
     },
 
-    jslint_options: {
-      //junit: 'out/junit.xml',
-      // write the output to a JUnit XML
-      //log: 'out/lint.log',
-      errorsOnly: true // only display errors
-    },
-
-    lint: {
-      files: ['grunt.js', 'public/app/*.js', 'tests/*.js']
-    },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        jquery: true,
-        trailing: true,
-        noempty: true
-        // strict:true,
-      },
-      globals: {
-        afterEach: false,
-        beforeEach: false,
-        describe: false,
-        expect: false,
-        it: false,
-        fixtures: false
+    exec: {
+      publish: {
+        command: 'jitsu deploy',
+        stdout: true
       }
     }
   });
 
-  // Default task.
-  grunt.registerTask('default', 'lint');
+  grunt.registerTask('deploy', 'concat min bump:patch exec:publish');
 };

@@ -12,7 +12,7 @@ GameController.prototype = {
 	},
 	start:function() {
 		var self=this;
-		$.getJSON('http://localhost:8010/secretword', function(data) {
+		$.getJSON('/secretword', function(data) {
 			self.game.start(data.secretword);
 			self.wordOutput.html(self.game.formatedSecretWord);
 			self.createButtons();

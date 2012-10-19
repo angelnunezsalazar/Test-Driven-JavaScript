@@ -16,7 +16,7 @@
   //Predefined Globals
 	"browser": true,
   "jquery": true,
-  "globals": {
+  "predef": {
         "afterEach": false,
         "beforeEach": false,
         "describe": false,

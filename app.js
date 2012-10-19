@@ -2,9 +2,10 @@ var express = require("express"),
 	http = require('http');
 
 var app = express();
+var port = process.env.port || 8010;
 
 app.configure(function() {
-	app.set('port', 8010);
+	app.set('port', port);
 	app.use(express.bodyParser());
 	app.use(express.static(__dirname + '/public'));
 	app.use(express.errorHandler({
@@ -13,17 +14,19 @@ app.configure(function() {
 	}));
 });
 
-var randomWord=function() {
-	var palabras = ['ahorcado', 'lavadora', 'invierno', 'plastico', 'ordenador', 'colador', 'guantera', 'alimentador', 'calculos'];
-	var aleat = Math.random() * palabras.length;
-	var index = Math.floor(aleat);
-	return palabras[index];
-};
+var randomWord = function() {
+		var palabras = ['ahorcado', 'lavadora', 'invierno', 'plastico', 'ordenador', 'colador', 'guantera', 'alimentador', 'calculos'];
+		var aleat = Math.random() * palabras.length;
+		var index = Math.floor(aleat);
+		return palabras[index];
+	};
 
 app.get('/secretword', function(req, res) {
-	res.json({secretword:randomWord()});
+	res.json({
+		secretword: randomWord()
+	});
 });
 
 http.createServer(app).listen(app.get('port'), function() {
-	console.log("Server listening on port " + app.get('port'));
+	console.log("Server listening on port " + app.get('port') + " in " + app.settings.env + " mode");
 });
