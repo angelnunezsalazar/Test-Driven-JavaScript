@@ -5,6 +5,9 @@ var app = express();
 var port = process.env.port || 8010;
 
 app.configure(function() {
+	app.engine('html', require('ejs').renderFile);
+	app.set('view engine', 'ejs');
+	app.set('views', __dirname + '/');
 	app.set('port', port);
 	app.use(express.bodyParser());
 	app.use(express.static(__dirname + '/public'));
@@ -20,6 +23,12 @@ var randomWord = function() {
 		var index = Math.floor(aleat);
 		return palabras[index];
 	};
+
+app.get('/', function(req, res) {
+	res.render("index.html", {
+		environment: app.settings.env
+	});
+});
 
 app.get('/secretword', function(req, res) {
 	res.json({

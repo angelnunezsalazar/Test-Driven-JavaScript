@@ -1,0 +1,9 @@
+{
+	"name": "TestDrivenJavaScript",
+	"description": "Agiles2012(The Latin American Conference on Agile Methodologies) Session",
+	"author": "Angel Núñez Salazar 'snahider' <snahider@gmail.com>",
+	"version": "0.0.1",
+	"scripts": {
+		"preinstall": "npm i -g testem grunt"
+	}
+}

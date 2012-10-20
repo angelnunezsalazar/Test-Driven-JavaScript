@@ -2,17 +2,26 @@
 module.exports = function(grunt) {
 
   //Import tasks
-  grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-exec');
 
   grunt.initConfig({
     concat: {
-      "public/app/script.js": ["public/app/*.js"]
+      app: {
+        src: ["public/app/*.js"],
+        dest: "output/dist/app.js"
+      },
+      vendor: {
+        src: ["public/lib/*.min.js"],
+        dest: "public/lib/vendor.min.js"
+      }
     },
 
     min: {
-      "public/app/script.min.js": ["public/app/script.js"]
+      app: {
+        src: ["output/dist/app.js"],
+        dest: "public/app/app.min.js"
+      }
     },
 
     exec: {
