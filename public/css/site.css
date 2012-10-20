@@ -1,0 +1,35 @@
+body{
+   font-size: 0.9em;
+   font-family: Trebuchet MS, verdana, arial, sans-serif;
+}
+
+#message{
+   font-size: 3em;
+   text-align: center;
+   padding-top: 15px;
+   width: 300px;
+}
+
+#letters{
+   width: 330px;
+   clear: both;
+   margin-bottom: 10px;
+}
+
+#letters button{
+   margin: 2px;
+   width: 30px;
+   text-align: center;
+}
+
+#wordDisplayed{
+   font-size: 3em;
+   text-align:center;
+   width: 320px;
+   clear: both;
+   margin-bottom: 10px;
+}
+
+#dibujoahorcado{
+   margin-bottom: 20px;
+}

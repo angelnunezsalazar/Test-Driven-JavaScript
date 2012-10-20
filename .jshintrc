@@ -1,0 +1,27 @@
+{
+	// The Good Part && Style Preferences
+	"curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "trailing": true,
+  "noempty": true,
+
+  //Predefined Globals
+	"browser": true,
+  "jquery": true,
+  "predef": {
+        "afterEach": false,
+        "beforeEach": false,
+        "describe": false,
+        "expect": false,
+        "it": false,
+        "fixtures": false
+      }
+}

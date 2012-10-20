@@ -1,0 +1,16 @@
+{
+  "name": "hangman",
+  "author": "Angel Núñez Salazar 'snahider' <snahider@gmail.com>",
+  "version": "0.0.7",
+  "scripts": {
+    "start": "server.js"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "subdomain": "hangman",
+  "dependencies": {
+    "express": "3.0.x",
+    "ejs": "0.8.x"
+  }
+}
