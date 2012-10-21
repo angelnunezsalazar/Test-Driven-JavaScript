@@ -1,0 +1,6 @@
+// let enter the secret word
+// be able to play
+// should show the number of failed attempts
+// prevent to play the same letter twice
+// show when someone wins
+// show when someone loses
