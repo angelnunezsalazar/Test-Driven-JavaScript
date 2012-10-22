@@ -22,6 +22,8 @@
         "describe": false,
         "expect": false,
         "it": false,
-        "fixtures": false
+        "fixtures": false,
+        "sinon": false,
+        "console": false
       }
 }
