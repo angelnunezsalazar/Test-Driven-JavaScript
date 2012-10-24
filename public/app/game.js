@@ -34,6 +34,6 @@ Game.prototype={
 		}
 	},
 	letterMatches:function(letter) {
-		return this.secretWord.indexOf(letter)!=-1;
+		return this.secretWord.indexOf(letter)!==-1;
 	}
 };
