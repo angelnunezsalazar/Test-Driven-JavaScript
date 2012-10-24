@@ -10,19 +10,19 @@ body{
    width: 300px;
 }
 
-#letters{
+#buttonList{
    width: 330px;
    clear: both;
    margin-bottom: 10px;
 }
 
-#letters button{
+#buttonList button{
    margin: 2px;
    width: 30px;
    text-align: center;
 }
 
-#wordDisplayed{
+#initialSequence{
    font-size: 3em;
    text-align:center;
    width: 320px;

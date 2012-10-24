@@ -10,7 +10,6 @@
   "undef": true,
   "boss": true,
   "eqnull": true,
-  "trailing": true,
   "noempty": true,
 
   //Predefined Globals

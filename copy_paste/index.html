@@ -9,7 +9,7 @@
 <body>
 	<H1>Play Hangman</H1>
 
-	<div id="wordDisplayed"></div>
+	<div id="initialSequence"></div>
 
 	<script type="text/javascript" src="lib/jquery-1.8.0.js"></script>
 	<script type="text/javascript" src="lib/jquery-ui-1.9.0.js"></script>
@@ -17,9 +17,9 @@
 	<script type="text/javascript" src="app/game.js"></script>
 
 	<script type="text/javascript">
-		var wordDisplayed = $('#wordDisplayed');
+		var initialSequence = $('#initialSequence');
 		var game = new Game({
-			wordDisplayed: wordDisplayed
+			initialSequence: initialSequence
 		});
 	</script>
 </body>
