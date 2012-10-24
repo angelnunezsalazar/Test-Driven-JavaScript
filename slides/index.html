@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+    <section>
+        <h6>
+            <br>
+        </h6>
+        <h1>test driven</h1>
+        <h1>javascript</h1>
+        <p>
+        <br>
+    </p>
+    <p>Angel Núñez Salazar</p>
+    <p>snahider@gmail.com</p>
+    <p>@snahider</p>
+    <br>
+    <br>
+</section>
+<section>
+    <h6>No trata solo sobre TDD,&nbsp;<font color="#ffffff">Sino sobre&nbsp;</font>
+</h6>
+<h2>
+    <font color="#cc0000">Agile JS Development<br>
+    </font>
+    <img src="http://i.imgur.com/fHibQ.png">
+</h2>
+</section>
+<section>
+    <h3>App demo (live coding)</h3>
+    <h2>
+        <font color="#cc0000">Hangman<br>
+        </font>
+        <img src="http://i.imgur.com/g9auM.jpg">
+    </h2>
+</section>
+<section>
+    <h2>No hay más Slides, <font color="#cc0000">SOLO CóDIGO</font>
+    <img src="http://i.imgur.com/FMIGM.jpg">
+</h2>
+</section>
+<section>
+    <h3 style="">TESTING FRAMEWORKS</h3>
+    <div style="letter-spacing: normal;text-transform: none;">
+        <div style="">
+            <a href="http://visionmedia.github.com/mocha/">Mocha</a>
+        </div>
+        <div style="">
+            <a href="http://pivotal.github.com/jasmine/">Jasmine</a>
+        </div>
+        <div style="">
+            <a href="http://code.google.com/p/js-test-driver/">JsTestDriver</a>
+        </div>
+        <div style="">
+            <a href="http://docs.busterjs.org/en/latest/">Buster.js</a>&nbsp;(The Future)</div>
+            <div>
+                <br>
+            </div>
+        </div>
+        <h3 style="">TESTING COMPLEMENTS</h3>
+        <div style="letter-spacing: normal;text-transform: none;">
+            <a href="http://sinonjs.org/">Sinon&nbsp;</a>(Mocking, Fake Ajax Request)</div>
+            <div style="letter-spacing: normal;text-transform: none;">
+                <a href="https://github.com/badunk/js-fixtures">JS-Fixtures</a>&nbsp;(HTML Fixtures)</div>
+                <div style="letter-spacing: normal;text-transform: none;">
+                    <br>
+                </div>
+                <h3>CODE ANALISIS</h3>
+                <div style="letter-spacing: normal;text-transform: none;">
+                    <div style="">
+                        <a href="https://github.com/jshint/jshint">JSHint</a>&nbsp;(Detect Errors and Enforce Conventions)</div>
+                    </div>
+                </section>
+                <section>
+                    <h3>Test Runners</h3>
+                    <div>
+                        <a href="https://github.com/airportyh/testem">Testem</a>
+                    </div>
+                    <div>
+                        <a href="http://vojtajina.github.com/testacular/">Testacular</a>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                    <h3>Build Tools</h3>
+                    <div>
+                        <a href="http://gruntjs.com/">Grunt</a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/mde/jake">Jake</a>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                    <div>
+                        <h3 style="">CROSS BROWSER TESTING</h3>
+                    </div>
+                    <div>
+                        <a href="http://www.browserstack.com/" style="">Browserstack</a>
+                        <br>
+                    </div>
+                    <h3>
+                        <br>
+                    </h3>
+                </section>
+            </div>
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+
+	</body>
+</html>
