@@ -1,4 +1,4 @@
-// let enter the secret word
+// show the initial sequence
 // be able to play
 // should show the number of failed attempts
 // prevent to play the same letter twice
