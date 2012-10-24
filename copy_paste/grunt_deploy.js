@@ -1,6 +1,10 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+  //Import tasks
+  grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-exec');
+
   grunt.initConfig({
     concat: {
       app: {
@@ -18,8 +22,15 @@ module.exports = function(grunt) {
         src: ["output/dist/app.js"],
         dest: "public/app/app.min.js"
       }
+    },
+
+    exec: {
+      publish: {
+        command: 'jitsu deploy',
+        stdout: true
+      }
     }
   });
 
-  grunt.registerTask('default', 'concat min');
+  grunt.registerTask('deploy', 'concat min bump:patch exec:publish');
 };
