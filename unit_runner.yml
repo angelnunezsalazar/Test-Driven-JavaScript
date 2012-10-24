@@ -1,3 +1,4 @@
 test_page: tests/unit.html
 launch_in_ci:
 - Chrome
+- Firefox

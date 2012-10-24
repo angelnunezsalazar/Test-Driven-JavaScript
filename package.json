@@ -1,7 +1,7 @@
 {
   "name": "hangman",
   "author": "Angel Núñez Salazar 'snahider' <snahider@gmail.com>",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "start": "server.js"
   },
