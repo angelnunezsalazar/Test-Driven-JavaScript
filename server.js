@@ -32,7 +32,7 @@ app.get('/', function(req, res) {
 
 app.get('/secretword', function(req, res) {
 	res.json({
-		secretword: randomWord()
+		word: randomWord()
 	});
 });
 
