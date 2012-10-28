@@ -8,8 +8,16 @@ describe("GameController", function() {
 	var server;
 
 	function loadFixture(){
+		/*
 		fixtures.path='fixtures';
 		fixtures.load("game.html");
+		
+		CHROME ISSUE: file:// URIs cannot read other file:// URIs,
+		HOW TO SOLVE: https://github.com/velesin/jasmine-jquery/issues/4
+		*/
+		var html="<div id='wordDisplayed'/><div id='letters'/><div id='failedAttempts'/>";
+		fixtures.set(html);
+
 		return $('#' + fixtures.containerId).contents().find('body');
 	}
 
